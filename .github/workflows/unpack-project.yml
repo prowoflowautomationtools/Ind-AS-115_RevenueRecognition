@@ -5,6 +5,7 @@ on:
   push:
     paths:
       - ind-as115-flutter-mvp.zip
+      - .github/workflows/unpack-project.yml
 
 permissions:
   contents: write
@@ -20,6 +21,7 @@ jobs:
         run: |
           mkdir -p /tmp/ind-as115
           unzip -o ind-as115-flutter-mvp.zip -d /tmp/ind-as115
+          rm -rf /tmp/ind-as115/.github
           cp -R /tmp/ind-as115/. .
           rm ind-as115-flutter-mvp.zip
 
