@@ -1,37 +1,83 @@
-# Ind AS 115 Studio — Flutter MVP
+# Ind AS 115 Studio
 
-Offline-first educational Android app for CA Final learners and accounting professionals.
+A learning and practice app for understanding Ind AS 115 (Revenue from Contracts with Customers). The app is built with Flutter for Android.
 
-## Included in this starter MVP
+**Project status:** Working MVP. The Android build has previously completed successfully and the app has been installed and tested.
 
-- Premium mobile dashboard and navigation
-- Five-step Ind AS 115 learning framework
-- Expandable lesson cards with decision checkpoints
-- Relative stand-alone selling price allocation calculator
-- Over-time recognition screening prompts
-- Interactive software + implementation case practice
-- Local learning progress and quiz score persistence
-- GitHub Actions workflow to analyze, test and build an Android APK
+## If you only want to use the app
 
-## Build in GitHub Actions from an Android phone
+You do not need to install Flutter or write code.
 
-1. Create a new GitHub repository named `ind-as115-studio`.
-2. Upload the **contents** of this project archive to the repository root (not the containing folder).
-3. Open the repository's **Actions** tab.
-4. If prompted, enable GitHub Actions.
-5. Select **Build Android APK** and tap **Run workflow** (or push a commit to `main`).
-6. Open the completed workflow run, scroll to **Artifacts**, and download `ind-as115-android-apk`.
-7. Extract the ZIP and install `app-release.apk` on your Android phone. Android may ask you to allow installation from that browser or file manager.
+1. Open this repository on GitHub.
+2. Tap **Actions**.
+3. Open the latest successful **Build Android APK** run on the `main` branch.
+4. Scroll to **Artifacts** and download `ind-as115-android-apk`.
+5. Open the downloaded ZIP file on your Android phone and extract it.
+6. Tap `app-release.apk` to install. If Android asks, allow your browser or file manager to install unknown apps, then return to the APK and continue.
 
-## Signing note
+The artifact is a temporary download and expires after 14 days. If you cannot find it, run the workflow again from **Actions → Build Android APK → Run workflow**, or ask for help.
 
-The workflow produces an installable release APK using Flutter's default Android release configuration. Before distributing through Google Play or wider production distribution, configure a private release keystore using GitHub Actions secrets and update Android signing configuration. Never commit keystore files or passwords to the repository.
+More detailed phone-first instructions: [Start Here](docs/START_HERE.md).
 
-## Accounting-content note
+## What the app currently includes
 
-This is an educational MVP, not an authoritative accounting opinion engine. Validate all treatments against the latest notified Ind AS 115 text, amendments, appendices, facts, contract terms and applicable legal environment. The current calculator implements the basic relative-SSP allocation formula and does not automate exceptions such as allocation of discounts or variable consideration to specific performance obligations.
+- A home dashboard and simple app navigation
+- A five-step Ind AS 115 learning framework
+- Expandable lesson cards and decision checkpoints
+- A relative stand-alone selling price (SSP) allocation calculator
+- Prompts for assessing over-time revenue recognition
+- Interactive case practice
+- Learning progress and quiz scores saved on the device
 
-## Local development
+This is an MVP. Features and accounting coverage may change as the project develops.
+
+## If you want to improve the app
+
+You can describe the change you want in plain English. For example: "Add a worked example for a contract with three performance obligations." A developer or coding assistant can translate the request into a code change.
+
+The usual process is:
+
+1. Explain the desired change and expected result.
+2. Make the change on a separate branch.
+3. Review the proposed changes before they are added to `main`.
+4. After approved changes reach `main`, GitHub Actions checks the project and builds a new APK.
+
+The app's folders and files are explained in [Project Map](docs/PROJECT_MAP.md).
+
+## Project structure
+
+- `lib/` — the app's Flutter source code
+- `test/` — automated app checks
+- `.github/workflows/android-apk.yml` — the automatic Android APK build
+- `docs/` — plain-English project guidance
+
+## Build checks
+
+The GitHub Actions workflow runs these steps:
+
+1. Set up Java and Flutter
+2. Generate the Android platform folder needed for the build
+3. Download project dependencies
+4. Analyze the Flutter code
+5. Run automated tests
+6. Build a release APK
+7. Upload the APK as a downloadable workflow artifact
+
+The Android platform files are generated during the cloud build; they are not currently stored in this repository.
+
+## Accounting accuracy and limitations
+
+This app is an educational aid, not an authoritative accounting opinion or a substitute for professional judgment. Always verify conclusions against the latest notified Ind AS 115, amendments, relevant appendices, contract facts and applicable requirements.
+
+The current SSP calculator performs a basic relative-SSP allocation. It does not automatically apply every exception or judgement area, including allocation of discounts or variable consideration to specific performance obligations. See [Accounting Content Rules](docs/ACCOUNTING_CONTENT_RULES.md).
+
+## Security and signing
+
+Do not upload passwords, API keys, signing keystores or other secrets to this repository. The current workflow creates an installable release APK using Flutter's default Android release configuration. A private release keystore and secure GitHub Actions secrets should be configured before production or Google Play distribution.
+
+## For developers
+
+Requirements: a compatible Flutter stable release and Java 17.
 
 ```bash
 flutter pub get
@@ -40,3 +86,10 @@ flutter test
 flutter run
 flutter build apk --release
 ```
+
+## Help and project notes
+
+- [Start Here](docs/START_HERE.md) — how to get and install the APK using an Android phone
+- [Project Map](docs/PROJECT_MAP.md) — what each important folder and file does
+- [Accounting Content Rules](docs/ACCOUNTING_CONTENT_RULES.md) — principles for maintaining reliable learning content
+- [Changelog](docs/CHANGELOG.md) — notable project changes
