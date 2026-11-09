@@ -40,11 +40,19 @@ class _CasePracticeScreenState extends State<CasePracticeScreen> {
           borderRadius: BorderRadius.circular(13),
           border: Border.all(color: submitted && i == correct ? const Color(0xFF19A68F) : const Color(0xFFE4E9F0)),
         ),
+        child: Material(
+        color: Colors.transparent,
         child: RadioListTile<int>(
-          value: i, groupValue: selected, onChanged: submitted ? null : (v) => setState(() => selected = v),
-          title: Text(options[i], style: const TextStyle(fontSize: 12, height: 1.4)),
-          dense: true, contentPadding: const EdgeInsets.symmetric(horizontal: 8),
-        ),
+        value: i,
+        groupValue: selected,
+        onChanged: submitted ? null : (v) => setState(() => selected = v),
+        title: Text(
+        options[i],
+        style: const TextStyle(fontSize: 12, height: 1.4),
+       ),
+        dense: true,
+        contentPadding: const EdgeInsets.symmetric(horizontal: 8),
+       ),
       )),
       if (!submitted) FilledButton(onPressed: selected == null ? null : () async {
         setState(() => submitted = true);
