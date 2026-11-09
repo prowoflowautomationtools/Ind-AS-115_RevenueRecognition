@@ -53,7 +53,7 @@ class _CasePracticeScreenState extends State<CasePracticeScreen> {
         dense: true,
         contentPadding: const EdgeInsets.symmetric(horizontal: 8),
        ),
-      )),
+     ))),
       if (!submitted) FilledButton(onPressed: selected == null ? null : () async {
         setState(() => submitted = true);
         await widget.store.recordAnswer(selected == correct);
