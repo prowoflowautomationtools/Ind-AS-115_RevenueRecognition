@@ -1,4 +1,4 @@
-# Ind AS 115 Studio
+# Ind AS 115
 
 A learning and practice app for understanding Ind AS 115 (Revenue from Contracts with Customers). The app is built with Flutter for Android.
 
