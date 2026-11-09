@@ -1,0 +1,40 @@
+# Flutter / Dart
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+build/
+coverage/
+
+# Android generated files and local settings
+android/.gradle/
+android/local.properties
+android/key.properties
+android/captures/
+android/app/.cxx/
+android/app/debug/
+android/app/profile/
+android/app/release/
+
+# iOS generated files
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/Generated.xcconfig
+ios/Flutter/flutter_export_environment.sh
+ios/Runner/GeneratedPluginRegistrant.*
+
+# IDE and operating system files
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+# Signing material - never commit private keys
+*.jks
+*.keystore
+*.p12
+*.pem
+*.mobileprovision
